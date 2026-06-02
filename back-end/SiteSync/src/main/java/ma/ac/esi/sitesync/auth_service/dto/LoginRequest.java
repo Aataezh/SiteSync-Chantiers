@@ -1,4 +1,4 @@
-package ma.ac.esi.auth_service.dto;
+package ma.ac.esi.sitesync.auth_service.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

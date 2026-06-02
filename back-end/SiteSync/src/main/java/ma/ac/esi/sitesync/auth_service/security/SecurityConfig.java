@@ -1,4 +1,4 @@
-package ma.ac.esi.auth_service.security;
+package ma.ac.esi.sitesync.auth_service.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

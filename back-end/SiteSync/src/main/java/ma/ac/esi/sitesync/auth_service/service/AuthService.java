@@ -1,11 +1,11 @@
-package ma.ac.esi.auth_service.service;
+package ma.ac.esi.sitesync.auth_service.service;
 
-import ma.ac.esi.auth_service.dto.AuthResponse;
-import ma.ac.esi.auth_service.dto.LoginRequest;
-import ma.ac.esi.auth_service.dto.RegisterRequest;
-import ma.ac.esi.auth_service.model.User;
-import ma.ac.esi.auth_service.repository.UserRepository;
-import ma.ac.esi.auth_service.security.JwtUtil;
+import ma.ac.esi.sitesync.auth_service.dto.AuthResponse;
+import ma.ac.esi.sitesync.auth_service.dto.LoginRequest;
+import ma.ac.esi.sitesync.auth_service.dto.RegisterRequest;
+import ma.ac.esi.sitesync.auth_service.model.User;
+import ma.ac.esi.sitesync.auth_service.repository.UserRepository;
+import ma.ac.esi.sitesync.auth_service.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

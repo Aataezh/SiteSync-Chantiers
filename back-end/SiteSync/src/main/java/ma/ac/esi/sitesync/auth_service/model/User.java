@@ -1,4 +1,4 @@
-package ma.ac.esi.auth_service.model;
+package ma.ac.esi.sitesync.auth_service.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

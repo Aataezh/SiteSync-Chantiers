@@ -1,6 +1,6 @@
-package ma.ac.esi.auth_service.dto;
+package ma.ac.esi.sitesync.auth_service.dto;
 
-import ma.ac.esi.auth_service.model.User;
+import ma.ac.esi.sitesync.auth_service.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

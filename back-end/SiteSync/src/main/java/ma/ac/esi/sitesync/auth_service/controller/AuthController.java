@@ -1,10 +1,10 @@
-package ma.ac.esi.auth_service.controller;
+package ma.ac.esi.sitesync.auth_service.controller;
 
-import ma.ac.esi.auth_service.dto.AuthResponse;
-import ma.ac.esi.auth_service.dto.LoginRequest;
-import ma.ac.esi.auth_service.dto.RegisterRequest;
-import ma.ac.esi.auth_service.model.User;
-import ma.ac.esi.auth_service.service.AuthService;
+import ma.ac.esi.sitesync.auth_service.dto.AuthResponse;
+import ma.ac.esi.sitesync.auth_service.dto.LoginRequest;
+import ma.ac.esi.sitesync.auth_service.dto.RegisterRequest;
+import ma.ac.esi.sitesync.auth_service.model.User;
+import ma.ac.esi.sitesync.auth_service.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

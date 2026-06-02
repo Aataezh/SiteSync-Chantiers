@@ -1,6 +1,6 @@
-package ma.ac.esi.auth_service.repository;
+package ma.ac.esi.sitesync.auth_service.repository;
 
-import ma.ac.esi.auth_service.model.User;
+import ma.ac.esi.sitesync.auth_service.model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
