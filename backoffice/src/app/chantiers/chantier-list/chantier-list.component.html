@@ -1,0 +1,57 @@
+<div class="page">
+    <div class="page-header">
+        <div>
+            <h1>Gestion des Chantiers</h1>
+            <p>{{ chantiers.length }} chantier(s) trouvé(s)</p>
+        </div>
+        <a routerLink="/chantiers/nouveau" class="btn btn-primary">+ Nouveau chantier</a>
+    </div>
+
+    <div class="filters">
+        <input type="text" [(ngModel)]="searchTerm"
+               placeholder="Rechercher par nom ou ville..." (input)="load()" />
+        <select [(ngModel)]="selectedStatut" (change)="load()">
+            <option value="">Tous les statuts</option>
+            <option value="PLANIFIE">Planifié</option>
+            <option value="EN_COURS">En cours</option>
+            <option value="SUSPENDU">Suspendu</option>
+            <option value="TERMINE">Terminé</option>
+        </select>
+    </div>
+
+    <div *ngIf="error" class="alert-error">{{ error }}</div>
+    <div *ngIf="loading" class="loading">Chargement...</div>
+
+    <table *ngIf="!loading && !error">
+        <thead>
+            <tr>
+                <th>Chantier</th><th>Ville</th><th>Statut</th>
+                <th>Avancement</th><th>Budget</th><th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of chantiers">
+                <td><strong>{{ c.nom }}</strong><br><small>{{ c.adresse }}</small></td>
+                <td>{{ c.ville }}</td>
+                <td><span [class]="getStatutClass(c.statut)">{{ c.statut }}</span></td>
+                <td>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" [style.width.%]="c.avancement"></div>
+                        </div>
+                        <span>{{ c.avancement }}%</span>
+                    </div>
+                </td>
+                <td>{{ c.budget | number }} {{ c.devise }}</td>
+                <td class="actions">
+                    <a [routerLink]="['/chantiers', c.id]" class="btn btn-sm btn-info">Voir</a>
+                    <a [routerLink]="['/chantiers', c.id, 'editer']" class="btn btn-sm btn-warning">Éditer</a>
+                    <button (click)="onDelete(c.id)" class="btn btn-sm btn-danger">Suppr.</button>
+                </td>
+            </tr>
+            <tr *ngIf="chantiers.length === 0">
+                <td colspan="6" class="empty">Aucun chantier trouvé</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

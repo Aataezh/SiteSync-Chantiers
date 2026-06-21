@@ -1,0 +1,65 @@
+<div class="page">
+    <a routerLink="/chantiers" class="back-link">← Retour à la liste</a>
+
+    <div *ngIf="loading" class="loading">Chargement...</div>
+    <div *ngIf="error" class="alert-error">{{ error }}</div>
+
+    <div *ngIf="chantier && !loading" class="detail-card">
+        <div class="detail-header">
+            <h1>{{ chantier.nom }}</h1>
+            <span [class]="getStatutClass(chantier.statut)">{{ chantier.statut }}</span>
+        </div>
+
+        <p class="description">{{ chantier.description || 'Aucune description' }}</p>
+
+        <div class="progress-section">
+            <div class="progress-label">
+                <span>Avancement</span>
+                <strong>{{ chantier.avancement }}%</strong>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" [style.width.%]="chantier.avancement"></div>
+            </div>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-item">
+                <span class="info-label">Adresse</span>
+                <span>{{ chantier.adresse }}, {{ chantier.ville }}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Coordonnées GPS</span>
+                <span>{{ chantier.latitude }}, {{ chantier.longitude }}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Date de début</span>
+                <span>{{ chantier.dateDebut }}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Date de fin</span>
+                <span>{{ chantier.dateFin || 'Non définie' }}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Client</span>
+                <span>{{ chantier.clientNom || 'Non renseigné' }}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Budget</span>
+                <span>{{ chantier.budget | number }} {{ chantier.devise }}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Responsable</span>
+                <span>{{ chantier.responsableId }}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Membres</span>
+                <span>{{ chantier.nombreMembres }}</span>
+            </div>
+        </div>
+
+        <div class="detail-actions">
+            <a [routerLink]="['/chantiers', chantier.id, 'editer']" class="btn btn-warning">Éditer</a>
+            <button (click)="onDelete()" class="btn btn-danger">Supprimer</button>
+        </div>
+    </div>
+</div>

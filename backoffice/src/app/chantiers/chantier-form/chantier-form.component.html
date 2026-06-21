@@ -1,0 +1,84 @@
+<div class="page">
+    <h1>{{ isEditMode ? 'Modifier le chantier' : 'Nouveau chantier' }}</h1>
+
+    <div *ngIf="error" class="alert-error">{{ error }}</div>
+
+    <form (ngSubmit)="onSubmit()" *ngIf="!loading || isEditMode">
+        <div class="form-group">
+            <label>Nom du chantier *</label>
+            <input type="text" [(ngModel)]="formData.nom" name="nom" required />
+        </div>
+
+        <div class="form-group">
+            <label>Description</label>
+            <textarea [(ngModel)]="formData.description" name="description"></textarea>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Adresse *</label>
+                <input type="text" [(ngModel)]="formData.adresse" name="adresse" required />
+            </div>
+            <div class="form-group">
+                <label>Ville *</label>
+                <input type="text" [(ngModel)]="formData.ville" name="ville" required />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Longitude *</label>
+                <input type="number" [(ngModel)]="formData.longitude" name="longitude" step="0.0001" required />
+            </div>
+            <div class="form-group">
+                <label>Latitude *</label>
+                <input type="number" [(ngModel)]="formData.latitude" name="latitude" step="0.0001" required />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Statut</label>
+                <select [(ngModel)]="formData.statut" name="statut">
+                    <option value="PLANIFIE">Planifié</option>
+                    <option value="EN_COURS">En cours</option>
+                    <option value="SUSPENDU">Suspendu</option>
+                    <option value="TERMINE">Terminé</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Date de début *</label>
+                <input type="date" [(ngModel)]="formData.dateDebut" name="dateDebut" required />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Client</label>
+                <input type="text" [(ngModel)]="formData.clientNom" name="clientNom" />
+            </div>
+            <div class="form-group">
+                <label>Responsable (ID) *</label>
+                <input type="text" [(ngModel)]="formData.responsableId" name="responsableId" required />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Budget</label>
+                <input type="number" [(ngModel)]="formData.budget" name="budget" />
+            </div>
+            <div class="form-group">
+                <label>Devise</label>
+                <input type="text" [(ngModel)]="formData.devise" name="devise" />
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="button" (click)="onCancel()" class="btn btn-secondary">Annuler</button>
+            <button type="submit" class="btn btn-primary" [disabled]="loading">
+                {{ loading ? 'Enregistrement...' : (isEditMode ? 'Mettre à jour' : 'Créer') }}
+            </button>
+        </div>
+    </form>
+</div>

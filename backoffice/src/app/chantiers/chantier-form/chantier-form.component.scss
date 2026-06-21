@@ -1,0 +1,39 @@
+.page { padding: 24px; max-width: 700px; }
+.form-group {
+    margin-bottom: 16px;
+    flex: 1;
+    label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        font-size: 14px;
+    }
+    input, select, textarea {
+        width: 100%;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+    textarea { min-height: 80px; }
+}
+.form-row {
+    display: flex;
+    gap: 16px;
+}
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+.btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+.btn-primary { background: #1A5EA8; color: white; }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+.btn-secondary { background: #e5e7eb; color: #333; }
+.alert-error { background: #FEE2E2; color: #991B1B; padding: 12px; border-radius: 6px; margin-bottom: 16px; }
